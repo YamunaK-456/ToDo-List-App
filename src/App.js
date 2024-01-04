@@ -1,7 +1,10 @@
 import "./styles.css";
+import {useState} from 'react';
 
 export default function App() {
-  const ToDoItem=["Read SpringBoot","Complete assignments","Prepare breakfast","Sleep for 2 hours","Take a shower"];
+  
+  const [toDoItem,setToDoItem]=useState(["Read SpringBoot","Complete assignments","Prepare breakfast","Sleep for 2 hours","Take a shower"]);
+
   return (
     <div className="Application">
       <header className="header">
@@ -9,7 +12,7 @@ export default function App() {
       </header>
 
       <ul>
-        {ToDoItem.map((data,ids) => {
+        {toDoItem.map((data,ids) => {
           return(
           <li key={ids}>
             <span>{data}</span>
@@ -17,6 +20,17 @@ export default function App() {
           );
         })}
       </ul>
+
+      <button onClick={()=>{
+        if (toDoItem.length === 0) {
+          setToDoItem([...toDoItem, ["Nothing to do buddy. Sleep!"]]);
+          //<p className="empty">"Nothing to do buddy. Sleep!"</p>
+        } else {
+          toDoItem.length = 0;
+          setToDoItem(toDoItem.splice(0, toDoItem.length));
+        }
+        
+      }}>empty</button>
     </div>
   );
 }
