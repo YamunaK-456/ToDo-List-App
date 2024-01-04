@@ -3,8 +3,13 @@ import "./styles.css";
 export default function App() {
   return (
     <div className="Application">
-      <h1>Aye Captain! 🫡</h1>
-      <h2>Lets create something!</h2>
+      <header className="header">
+        <h1>ToDo app</h1>
+      </header>
+
+      <ul>
+        <li><span>Nothing to do buddy. Sleep!!</span></li>
+      </ul>
     </div>
   );
 }
